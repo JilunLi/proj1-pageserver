@@ -96,8 +96,8 @@ def respond(sock):
             transmit(STATUS_FORBIDDEN, sock)
         elif parts[1].endswith('.html') or parts[1].endswith('.css'):
             try:
-                f = open('./pages/{}'.format(parts[1]), 'r')
-                for line in f:
+                Page = open('./pages/{}'.format(parts[1]), 'r')
+                for line in Page:
                     transmit(line, sock)
             except FileNotFoundError:
                 transmit(STATUS_NOT_FOUND, sock)
