@@ -97,8 +97,8 @@ def respond(sock):
         elif parts[1].endswith('.html') or parts[1].endswith('.css'):
             try:
                 Page = open('./pages/{}'.format(parts[1]), 'r')
-                for line in Page:
-                    transmit(line, sock)
+                for i in Page:
+                    transmit(i, sock)
             except FileNotFoundError:
                 transmit(STATUS_NOT_FOUND, sock)
         else:
